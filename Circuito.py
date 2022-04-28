@@ -7,19 +7,37 @@
 import time, math, os
 import Calcsimple as s
 
-_Parallel = s.Circuito_Paralelo()
+_Parallel = s.Parallel()
 _Serie = s.Serie()
 circuit = 0
 
 def sum_resistors(type):
     if  type == 1:
-        circuit = _Parallel
-    else:
         circuit = _Serie
+    else:
+        circuit = _Parallel
     
+    #Clear value in case of a new calculation
+    circuit.__clear__()
     added_resistors = int(input("Resistors to add: "))
+    #Limit to 10 resistors
+    if added_resistors > 10:
+        added_resistors = 10
+        print("\nYou can only add 10 resistors at a time")
+        print("\nResistors added: 10")
     for i in range(added_resistors):
-        circuit.__add__(int(input("Add the resistor: ")))
+        #Validate if the input is a number get_number()
+        # if input("\nEnter resistor value: ").isdigit():
+        #     circuit.__add__(int(input("\nEnter resistor value: ")))
+        while True:
+            try:
+                circuit.__add__(int(input("\nEnter resistor value number {}: ".format(i+1))))
+                break
+            except ValueError:
+                print("\nPlease enter a number")
+                continue
+    #Total resistance
+    #print("\nTotal Resistance: {}".format(circuit.__RT__()))
     print(circuit.__RT__())
 
 # Simple calc
@@ -33,13 +51,13 @@ def simple():
         print("2 | Parallel")
         choice = get_number("\nEnter your choice: ")
         if choice == 1:
-            print("\nSeries")
-            sum_resistors(1)
+            print("\n_________________")
+            print("   Series")
+            print("_________________")
+            sum_resistors(choice)
             print("\n...")
             #Clear terminal screen
-            os.system('cls' if os.name == 'nt' else 'clear')
-            circuit = _Serie
-
+            #os.system('cls' if os.name == 'nt' else 'clear')
             break
 
 
@@ -71,6 +89,10 @@ def main():
     \n""")
     while True:
         while True:
+            print("\n_________________")
+            print("   Type of Calc")
+            print("_________________")
+
             print("1 | Simple Calculations")
             print("2 | Advanced Calculations")
 
@@ -86,7 +108,6 @@ def main():
             elif choice == 2:
                 print("\nAdvanced")
                 break
-
 
 if __name__ == '__main__':
     main()
