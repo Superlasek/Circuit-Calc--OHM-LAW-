@@ -2,7 +2,7 @@
 
 #Coded ----------: Python3.9.0
 #Author --------: Stephano Bravo
-#Git Repository : 
+#Git Repository : https://github.com/Superlasek/Circuit-Calc--OHM-LAW-
 
 import time, math, os
 import Calcsimple as s
