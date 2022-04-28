@@ -4,12 +4,26 @@
 #Author --------: Stephano Bravo
 #Git Repository : https://github.com/Superlasek/Circuit-Calc--OHM-LAW-
 
+
+"""References
+    Power / Potencia | V*i, V^2 / R, R*i^2
+    Current / Intensidad | V/R, P/V, 
+    Resistor / Resistencia | V/I, 
+    Voltage / Voltaje | R*I, P/I
+"""
+
 import time, math, os
+from Calcsimple import *
 import Calcsimple as s
+from Calcadvanced import *
+import Calcadvanced as a
 
 _Parallel = s.Parallel()
 _Serie = s.Serie()
 circuit = 0
+
+def getPower():
+    pass
 
 def sum_resistors(type):
     if  type == 1:
@@ -38,7 +52,10 @@ def sum_resistors(type):
                 continue
     #Total resistance
     #print("\nTotal Resistance: {}".format(circuit.__RT__()))
-    print(circuit.__RT__())
+    circuit.__RT__()
+    #print(circuit.__RT__()) #This thing returns none bc two statements of the function lol
+    simple()
+
 
 # Simple calc
 def simple():
@@ -49,6 +66,7 @@ def simple():
         print("\nType of circuit: ")
         print("1 | Series")
         print("2 | Parallel")
+        print("0 | Back to Main Menu")
         choice = get_number("\nEnter your choice: ")
         if choice == 1:
             print("\n_________________")
@@ -59,11 +77,79 @@ def simple():
             #Clear terminal screen
             #os.system('cls' if os.name == 'nt' else 'clear')
             break
+        elif choice == 2:
+            print("\n_________________")
+            print("   Parallel")
+            print("_________________")
+            sum_resistors(choice)
+            print("\n...")
+            #Clear terminal screen
+            #os.system('cls' if os.name == 'nt' else 'clear')
+            break
+        elif choice == 0:
+            print("\nBack to Main Menu...")
+            time.sleep(0.5)
+            print("\n...")
+            #Clear terminal screen
+            os.system('cls' if os.name == 'nt' else 'clear')
+            main()
+            break
+        else:
+            print("\nPlease enter a valid option")
+            continue
 
 
 #TODO: For advanced calcs
 def advanced():
-    pass
+    print("\n____________________")
+    print("   Advanced Calc")
+    print("____________________")
+    while True:
+        print("1 | Get Power value: ")
+        print("2 | Get Current value: ")
+        print("3 | Get Resistance value: ")
+        print("4 | Get Voltage value: ")
+        print("0 | Back to Main Menu")
+        choice = get_number("\nEnter your choice: ")
+        if choice == 1:
+            print("\nEntering Get Power value mode...")
+            time.sleep(0.5)
+            print("\n...")
+            #Clear terminal screen
+            os.system('cls' if os.name == 'nt' else 'clear')
+            break
+        elif choice == 2:
+            print("\nEntering Get Current value mode...")
+            time.sleep(0.5)
+            print("\n...")
+            #Clear terminal screen
+            os.system('cls' if os.name == 'nt' else 'clear')
+            break
+        elif choice == 3:
+            print("\nEntering Get Resistance value mode...")
+            time.sleep(0.5)
+            print("\n...")
+            #Clear terminal screen
+            os.system('cls' if os.name == 'nt' else 'clear')
+            break
+        elif choice == 4:
+            print("\nEntering Get Voltage value mode...")
+            time.sleep(0.5)
+            print("\n...")
+            #Clear terminal screen
+            os.system('cls' if os.name == 'nt' else 'clear')
+            break
+        elif choice == 0:
+            print("\nBack to Main Menu...")
+            time.sleep(0.5)
+            print("\n...")
+            #Clear terminal screen
+            os.system('cls' if os.name == 'nt' else 'clear')
+            main()
+            break
+        else:
+            print("\nPlease enter a valid option")
+            continue
 
 
 #!TESTING
@@ -87,27 +173,43 @@ def main():
 ╚██████╔╝██║  ██║██║ ╚═╝ ██║   ███████║  ╚██████╗██║  ██║███████╗╚██████╗
  ╚═════╝ ╚═╝  ╚═╝╚═╝     ╚═╝   ╚══════╝   ╚═════╝╚═╝  ╚═╝╚══════╝ ╚═════╝                                                     
     \n""")
+
     while True:
-        while True:
-            print("\n_________________")
-            print("   Type of Calc")
-            print("_________________")
+        print("\n_________________")
+        print("   Type of Calc")
+        print("_________________")
 
-            print("1 | Simple Calculations")
-            print("2 | Advanced Calculations")
+        print("1 | Simple Calculations")
+        print("2 | Advanced Calculations")
+        print("0 | Exit")
 
-            choice = get_number("\nEnter your choice: ")
-            if choice == 1:
-                print("\nEntering Simple Calculations mode...")
-                time.sleep(0.5)
-                print("\n...")
-                #Clear terminal screen
-                os.system('cls' if os.name == 'nt' else 'clear')
-                simple()
-                break
-            elif choice == 2:
-                print("\nAdvanced")
-                break
+        choice = get_number("\nEnter your choice: ")
+        if choice == 1:
+            print("\nEntering Simple Calculations mode...")
+            time.sleep(0.5)
+            print("\n...")
+            #Clear terminal screen
+            os.system('cls' if os.name == 'nt' else 'clear')
+            simple()
+            break
+        elif choice == 2:
+            print("\nEntering Advanced Calculations mode...")
+            time.sleep(0.5)
+            print("\n...")
+            #Clear terminal screen
+            os.system('cls' if os.name == 'nt' else 'clear')
+            advanced()
+            break
+        elif choice == 0:
+            print("\nExiting...")
+            time.sleep(0.5)
+            print("\n...")
+            #Clear terminal screen
+            os.system('cls' if os.name == 'nt' else 'clear')
+            exit()
+        else:
+            print("\nPlease enter a valid option")
+            continue
 
 if __name__ == '__main__':
     main()
