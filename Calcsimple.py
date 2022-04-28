@@ -1,9 +1,12 @@
+#-*- coding : utf-8 -*-
+
 """References
     Power / Potencia V*i, V^2 / R, R*i^2
     Current / Intensidad  V/R, P/V, 
     Resistor / Resistencia V/I, 
     Voltage / Voltaje R*I, P/I
 """
+
 
 def _P_(v, i):
     print("The power is of ", v * i)
