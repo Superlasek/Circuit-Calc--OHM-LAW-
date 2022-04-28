@@ -15,8 +15,8 @@
 import time, math, os
 from Calcsimple import *
 import Calcsimple as s
-from Calcadvanced import *
-import Calcadvanced as a
+from Law import *
+import Law as lw
 
 _Parallel = s.Parallel()
 _Serie = s.Serie()
@@ -24,6 +24,16 @@ circuit = 0
 
 def getPower():
     pass
+
+""" def sum_power(type):
+    if type == 1:
+        circuit = _Serie
+    else:
+        circuit = _Parallel
+    circuit.__clear__()
+
+    added_power = int(input("Power to add: ")) """
+
 
 def sum_resistors(type):
     if  type == 1:
@@ -53,6 +63,7 @@ def sum_resistors(type):
     #Total resistance
     #print("\nTotal Resistance: {}".format(circuit.__RT__()))
     circuit.__RT__()
+
     #print(circuit.__RT__()) #This thing returns none bc two statements of the function lol
     simple()
 
@@ -66,7 +77,7 @@ def simple():
         print("\nType of circuit: ")
         print("1 | Series")
         print("2 | Parallel")
-        print("0 | Back to Main Menu")
+        print("\n0 | Back to Main Menu")
         choice = get_number("\nEnter your choice: ")
         if choice == 1:
             print("\n_________________")
@@ -181,7 +192,7 @@ def main():
 
         print("1 | Simple Calculations")
         print("2 | Advanced Calculations")
-        print("0 | Exit")
+        print("\n0 | Exit")
 
         choice = get_number("\nEnter your choice: ")
         if choice == 1:
@@ -198,7 +209,7 @@ def main():
             print("\n...")
             #Clear terminal screen
             os.system('cls' if os.name == 'nt' else 'clear')
-            advanced()
+            lw.Law()
             break
         elif choice == 0:
             print("\nExiting...")
