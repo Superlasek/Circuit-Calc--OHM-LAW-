@@ -4,7 +4,6 @@
 #Author --------: Stephano Bravo
 #Git Repository : https://github.com/Superlasek/Circuit-Calc--OHM-LAW-
 
-
 """References
     Power / Potencia | V*i, V^2 / R, R*i^2
     Current / Intensidad | V/R, P/V, 
@@ -12,7 +11,7 @@
     Voltage / Voltaje | R*I, P/I
 """
 
-import time, math, os
+import time, os
 from Calcsimple import *
 import Calcsimple as s
 from Law import *
@@ -22,19 +21,7 @@ _Parallel = s.Parallel()
 _Serie = s.Serie()
 circuit = 0
 
-def getPower():
-    pass
-
-""" def sum_power(type):
-    if type == 1:
-        circuit = _Serie
-    else:
-        circuit = _Parallel
-    circuit.__clear__()
-
-    added_power = int(input("Power to add: ")) """
-
-
+# Function to sum the resistors in a circuit
 def sum_resistors(type):
     if  type == 1:
         circuit = _Serie
@@ -65,6 +52,8 @@ def sum_resistors(type):
     circuit.__RT__()
 
     #print(circuit.__RT__()) #This thing returns none bc two statements of the function lol
+
+    #Back to last menu
     simple()
 
 
@@ -96,59 +85,6 @@ def simple():
             print("\n...")
             #Clear terminal screen
             #os.system('cls' if os.name == 'nt' else 'clear')
-            break
-        elif choice == 0:
-            print("\nBack to Main Menu...")
-            time.sleep(0.5)
-            print("\n...")
-            #Clear terminal screen
-            os.system('cls' if os.name == 'nt' else 'clear')
-            main()
-            break
-        else:
-            print("\nPlease enter a valid option")
-            continue
-
-
-#TODO: For advanced calcs
-def advanced():
-    print("\n____________________")
-    print("   Advanced Calc")
-    print("____________________")
-    while True:
-        print("1 | Get Power value: ")
-        print("2 | Get Current value: ")
-        print("3 | Get Resistance value: ")
-        print("4 | Get Voltage value: ")
-        print("0 | Back to Main Menu")
-        choice = get_number("\nEnter your choice: ")
-        if choice == 1:
-            print("\nEntering Get Power value mode...")
-            time.sleep(0.5)
-            print("\n...")
-            #Clear terminal screen
-            os.system('cls' if os.name == 'nt' else 'clear')
-            break
-        elif choice == 2:
-            print("\nEntering Get Current value mode...")
-            time.sleep(0.5)
-            print("\n...")
-            #Clear terminal screen
-            os.system('cls' if os.name == 'nt' else 'clear')
-            break
-        elif choice == 3:
-            print("\nEntering Get Resistance value mode...")
-            time.sleep(0.5)
-            print("\n...")
-            #Clear terminal screen
-            os.system('cls' if os.name == 'nt' else 'clear')
-            break
-        elif choice == 4:
-            print("\nEntering Get Voltage value mode...")
-            time.sleep(0.5)
-            print("\n...")
-            #Clear terminal screen
-            os.system('cls' if os.name == 'nt' else 'clear')
             break
         elif choice == 0:
             print("\nBack to Main Menu...")
